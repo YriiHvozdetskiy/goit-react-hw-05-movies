@@ -1,20 +1,24 @@
 import {Route, Switch} from "react-router-dom";
 import HomePage from "../pages/HomePage/HomePage";
 import MoviesPage from "../pages/MoviesPage/MoviesPage";
+import NotFoundView from "../pages/NotFoundView/NotFoundView";
 
 export default function Main() {
     return (<>
         <main>
-            <Switch>
-                <section>
+            <section>
+                <Switch>
                     <Route exact path='/'>
                         <HomePage/>
                     </Route>
-                    <Route path='/movie'>
+                    <Route path='/movies'>
                         <MoviesPage/>
                     </Route>
-                </section>
-            </Switch>
+                    <Route>
+                        <NotFoundView/>
+                    </Route>
+                </Switch>
+            </section>
         </main>
     </>)
 }
