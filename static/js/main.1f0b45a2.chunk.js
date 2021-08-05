@@ -1,0 +1,2 @@
+(this["webpackJsonphw-05-movies"]=this["webpackJsonphw-05-movies"]||[]).push([[0],{10:function(e,t,n){"use strict";n.r(t);var c=n(1),r=n.n(c),s=n(3),o=n.n(s),i=(n(8),n(0));var a=function(){return Object(i.jsx)(i.Fragment,{})};o.a.render(Object(i.jsx)(r.a.StrictMode,{children:Object(i.jsx)(a,{})}),document.getElementById("root"))},8:function(e,t,n){}},[[10,1,2]]]);
+//# sourceMappingURL=main.1f0b45a2.chunk.js.map
