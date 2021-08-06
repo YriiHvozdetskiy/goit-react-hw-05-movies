@@ -1,8 +1,7 @@
-function Cast(){
+export default function Cast(){
     return(<>
-        <h1>Cast</h1>
+        <p>Cast</p>
     </>)
 }
 
 
-export default Cast;

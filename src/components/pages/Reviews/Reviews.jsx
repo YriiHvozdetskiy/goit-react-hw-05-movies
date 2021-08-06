@@ -1,8 +1,7 @@
-function Reviews(){
+export default function Reviews(){
     return(<>
-        <h1>home</h1>
+        <p>Reviews</p>
     </>)
 }
 
 
-export default Reviews;
