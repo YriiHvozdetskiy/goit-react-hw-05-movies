@@ -1,7 +1,8 @@
-import MovieDetailsPage from "../MovieDetailsPage/MovieDetailsPage";
 
-export default function MoviesPage(){
-    return(<>
-         <MovieDetailsPage/>
-    </>)
+export default function MoviesPage() {
+	return (<>
+		<form>
+			<input type="text"/>
+		</form>
+	</>)
 }
