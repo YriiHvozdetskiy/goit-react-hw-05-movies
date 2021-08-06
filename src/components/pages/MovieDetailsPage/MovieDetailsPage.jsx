@@ -4,7 +4,6 @@ import * as serverApi from '../../services/movies-api'
 import Cast from "../Cast/Cast";
 import Reviews from "../Reviews/Reviews";
 import s from './MovieDetailsPage.module.scss'
-import * as url from "url";
 
 export default function MovieDetailsPage() {
 	const [movie, setMovie] = useState(null)
@@ -24,7 +23,7 @@ export default function MovieDetailsPage() {
 		}
 
 		fetchData()
-	}, [])
+	}, [movieId])
 
 	return (<div className={s.wrapper}>
 		<div className={s.info}>
