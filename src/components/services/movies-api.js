@@ -23,3 +23,13 @@ export const fetchMovieById = async (id) => {
 }
 
 
+export const fetchMovieCast= async (id) => {
+    try {
+        const response = await axios.get(`/movie/${id}/credits?api_key=${KEY_API}&language=en-US`)
+        return response.data;
+    } catch (error) {
+        return Promise.reject(new Error('Опа щось пішло не так :('))
+    }
+}
+
+

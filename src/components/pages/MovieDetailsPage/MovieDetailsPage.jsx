@@ -10,7 +10,6 @@ export default function MovieDetailsPage() {
 	const [movie, setMovie] = useState(null)
 	const [error, setError] = useState('')
 	const {movieId} = useParams();
-
 	const {url, path} = useRouteMatch()
 
 	useEffect(() => {
@@ -41,7 +40,7 @@ export default function MovieDetailsPage() {
 			{/*{movie && <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt=""/>}*/}
 		</div>
 		{/*навігація на сторінки які будуть рендиритися під цим ul( вложений  Route) */}
-		<ul>
+		<ul className={s.box}>
 			<li>
 				<NavLink to={`${url}/cast`} className={s.link} activeClassName={s.activeLink}>
 					Cast
