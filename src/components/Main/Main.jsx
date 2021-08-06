@@ -11,7 +11,7 @@ export default function Main() {
                     <Route exact path='/'>
                         <HomePage/>
                     </Route>
-                    <Route path='/movies'>
+                    <Route path='/movies/:movieId'>
                         <MoviesPage/>
                     </Route>
                     <Route>
