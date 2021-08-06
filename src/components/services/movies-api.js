@@ -40,4 +40,13 @@ export const fetchMovieReviews= async (id) => {
     }
 }
 
+export const fetchMovieSearch= async (search) => {
+    try {
+        const response = await axios.get(`/search/movie?api_key=${API_KEY}&language=en-US&query=${search}&page=1&include_adult=false`)
+        return response.data.results; //??????????????
+    } catch (error) {
+        return Promise.reject(new Error('Опана, щось пішло не так :('))
+    }
+}
+
 
