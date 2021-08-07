@@ -34,7 +34,7 @@ export default function HomePage() {
 						<Link to={
 							{
 								pathname: `movies/${movie.id}`,
-								state: {from: location},
+								state: {from: '/'},
 							}}>
 							{movie.title}
 						</Link>

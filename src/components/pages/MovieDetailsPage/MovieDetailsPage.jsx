@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useRef} from 'react';
 import {NavLink, Route, Switch, useHistory, useLocation, useParams, useRouteMatch} from "react-router-dom";
 import * as serverApi from '../../services/movies-api'
 import Cast from "../Cast/Cast";
@@ -8,10 +8,16 @@ import s from './MovieDetailsPage.module.scss'
 export default function MovieDetailsPage() {
 	const [movie, setMovie] = useState(null)
 	const [error, setError] = useState('')
+	const routeState = useRef()
 	const {movieId} = useParams()
 	const {url, path} = useRouteMatch()
 	const location = useLocation()
 	const history = useHistory()
+
+	 useEffect(()=>{
+	 	if (routeState.current) return
+	     routeState.current = location.state
+	   },[])
 
 	useEffect(() => {
 		async function fetchData() {
@@ -44,7 +50,7 @@ export default function MovieDetailsPage() {
 	// }
 
 	const goBackBtn = ()=>{
-
+		history.push(`${routeState.current.from}`)
 	}
 
 	return (<div className={s.wrapper}>
