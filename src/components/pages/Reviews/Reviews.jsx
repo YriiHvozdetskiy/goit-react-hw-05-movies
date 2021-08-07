@@ -20,7 +20,7 @@ export default function Reviews() {
 
 		fetchData();
 	}, [movieId])
-	//TODO доодати повідомлення коли  нема Reviews
+	//TODO доодати повідомлення коли  нема Reviews // We don't have any reviews for this movie
 	return (<>
 		{error && <h1>{error}</h1>}
 		{/*{<h1>Для цього фільма немає review</h1>}*/}

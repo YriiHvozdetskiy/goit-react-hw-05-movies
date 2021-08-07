@@ -7,6 +7,7 @@ export default function HomePage() {
 	const [error, setError] = useState('')
 //TODO нормально стилізувати HomePage
 //TODO дод loader spiner
+//TODO дод пагінацію
 
 	useEffect(() => {
 		async function fetchData() {
