@@ -11,7 +11,7 @@ export default function MoviesPage() {
 	const location = useLocation()
 	const history = useHistory()
 	const {url} = useRouteMatch()
-
+	//TODO розділити на 2 useEffecta (searchParam i searchData)
 	useEffect(() => {
 		const searchParam = new URLSearchParams(location.search).get('query')
 		if (searchParam !== null) {
@@ -47,7 +47,6 @@ export default function MoviesPage() {
 		})
 	}, [searchValue])
 
-
 	const handleSubmit = (e) => {
 		e.preventDefault()
 		const {value} = e.target.value
@@ -57,16 +56,27 @@ export default function MoviesPage() {
 
 	return (<>
 		{error && <h1>{error}</h1>}
-		{/*TODO не рендирити форму при error */}
-		<form onSubmit={(e) => handleSubmit(e)}>
-			<input type="text" name='value'/>
-			<button type='submit'>Search</button>
-		</form>
+		{/*TODO показувати error */}
+
+		<header className={s.Searchbar}>
+			<form className={s.SearchForm} onSubmit={handleSubmit}>
+				<button type="submit" className={s.SearchFormButton}>
+					<span className={s.SearchFormButtonLabel}>Search</span>
+				</button>
+				<input
+					className={s.SearchFormInput}
+					type="text"
+					name='value'
+					autoFocus
+					placeholder="Search movies"
+				/>
+			</form>
+		</header>
 		{data && <ul className={s.list}>
-			{data.map(({id, overview, budget, release_date, vote_average, title,poster_path}) => {
+			{data.map(({id, overview, budget, release_date, vote_average, title, poster_path}) => {
 				return (
 					<li key={id} className={s.item}>
-		{/*передаєм обєкт, в to передаєм обєкт цього місця знаходження (location) і pathname - куда перейти */}
+						{/*передаєм обєкт, в to передаєм обєкт цього місця знаходження (location) і pathname - куда перейти */}
 						<Link to={
 							{
 								pathname: `${url}/${id}`,
@@ -75,7 +85,7 @@ export default function MoviesPage() {
 							<h2>{title}</h2>
 							{poster_path && <img src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt={title}/>}
 							{/*підставляєм дифолтну картинку якщо не приходе з бека  і ренд тільки один img де є картинка */}
-							{!poster_path  && <img src={defaultImage} alt={title}/>}
+							{!poster_path && <img src={defaultImage} alt={title}/>}
 							<p>{vote_average}</p>
 							<p>{release_date}</p>
 							<p>{budget}</p>
