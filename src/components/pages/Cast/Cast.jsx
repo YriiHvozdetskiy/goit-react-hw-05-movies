@@ -25,7 +25,7 @@ export default function Cast() {
 	return (<>
 		{error && <h1>{error}</h1>}
 		{cast && <ul className={s.list}>
-			{cast.cast.map(({id, profile_path, original_name, character}) => {
+			{cast.map(({id, profile_path, original_name, character}) => {
 				return (
 					<li key={id} className={s.item}>
 					{/*<img src={profile_path} alt=""/>*/}

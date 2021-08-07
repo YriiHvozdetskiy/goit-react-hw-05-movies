@@ -25,7 +25,8 @@ export const fetchMovieById = async (id) => {
 export const fetchMovieCast= async (id) => {
     try {
         const response = await axios.get(`/movie/${id}/credits?api_key=${API_KEY}&language=en-US`)
-        return response.data;
+        //пишем + cast щоб з обєкта data взяти відразу масив
+        return response.data.cast;
     } catch (error) {
         return Promise.reject(new Error('Опа щось пішло не так :('))
     }
@@ -34,6 +35,7 @@ export const fetchMovieCast= async (id) => {
 export const fetchMovieReviews= async (id) => {
     try {
         const response = await axios.get(`/movie/${id}/reviews?api_key=${API_KEY}&language=en-US&page=1`)
+        //пишем + results щоб з обєкта data взяти відразу масив
         return response.data.results;
     } catch (error) {
         return Promise.reject(new Error('Опа-опача  щось пішло не так :('))
@@ -43,7 +45,8 @@ export const fetchMovieReviews= async (id) => {
 export const fetchMovieSearch= async (search) => {
     try {
         const response = await axios.get(`/search/movie?api_key=${API_KEY}&language=en-US&query=${search}&page=1&include_adult=false`)
-        return response.data.results; //??????????????
+        //пишем + results щоб з обєкта data взяти відразу масив
+        return response.data.results;
     } catch (error) {
         return Promise.reject(new Error('Опана, щось пішло не так :('))
     }
