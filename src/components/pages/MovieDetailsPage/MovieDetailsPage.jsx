@@ -30,7 +30,8 @@ export default function MovieDetailsPage() {
 	const goBackBtn =()=>{
 		// щоб повернутися назад пушим  в кінець стеку в історію браузера location з адресою з відки ми прийшли
 		// в state.from  лежить цілий обєкт location тої сторінки звідки ми прийшли
-		history.push(location.state.from)
+		// ставим ? для того щоб коли зайшли з нової вкладеи по силці не було помилки. Дод ?? знач по умол
+		history.push(location?.state?.from ?? '/movies')
 	}
 
 	return (<div className={s.wrapper}>
