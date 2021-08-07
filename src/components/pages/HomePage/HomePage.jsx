@@ -1,10 +1,12 @@
 import {useEffect, useState} from "react";
 import * as serverApi from '../../services/movies-api'
-import {Link} from "react-router-dom";
+import {Link, useHistory, useLocation, useRouteMatch} from "react-router-dom";
 
 export default function HomePage() {
 	const [value, setValue] = useState([])
 	const [error, setError] = useState('')
+	const {url} = useRouteMatch()
+	const location = useLocation()
 
 	useEffect(() => {
 		async function fetchData() {
@@ -29,7 +31,11 @@ export default function HomePage() {
 			{value.map(movie => {
 				return (
 					<li key={movie.id}>
-						<Link to={`movies/${movie.id}`}>
+						<Link to={
+							{
+								pathname: `movies/${movie.id}`,
+								state: {from: location},
+							}}>
 							{movie.title}
 						</Link>
 					</li>)
