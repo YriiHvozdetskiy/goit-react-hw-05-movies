@@ -52,6 +52,8 @@ export default function MoviesPage() {
 		const {value} = e.target.value
 		// робем trim(удаляє пробіли в інпуті) щоб не робити fetch з пустою строкою і щоб не було пустої строки в location.search і за нею  не робився fetch
 		setSearchValue(value.trim())
+		// очищаєм поле воду після відправки value
+		e.target.reset()
 	}
 
 	return (<>
