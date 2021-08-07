@@ -66,7 +66,7 @@ export default function MoviesPage() {
 						<Link to={
 							{
 								pathname: `${url}/${id}`,
-								state: {from: location},
+								state: {from: `${url}`},
 							}}>
 							<h2>{title}</h2>
 							<p>{vote_average}</p>

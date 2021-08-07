@@ -1,23 +1,17 @@
-import {useState, useEffect, useRef} from 'react';
-import {NavLink, Route, Switch, useHistory, useLocation, useParams, useRouteMatch} from "react-router-dom";
+import {useState, useEffect} from 'react';
+import {NavLink, Route, Switch,  useParams, useRouteMatch} from "react-router-dom";
 import * as serverApi from '../../services/movies-api'
 import Cast from "../Cast/Cast";
 import Reviews from "../Reviews/Reviews";
+import {useGoBack} from '../../hooks/index'
 import s from './MovieDetailsPage.module.scss'
 
 export default function MovieDetailsPage() {
 	const [movie, setMovie] = useState(null)
 	const [error, setError] = useState('')
-	const routeState = useRef()
 	const {movieId} = useParams()
 	const {url, path} = useRouteMatch()
-	const location = useLocation()
-	const history = useHistory()
-
-	 useEffect(()=>{
-	 	if (routeState.current) return
-	     routeState.current = location.state
-	   },[])
+	const {goBack} = useGoBack()
 
 	useEffect(() => {
 		async function fetchData() {
@@ -33,30 +27,11 @@ export default function MovieDetailsPage() {
 		fetchData()
 	}, [movieId])
 
-	// const goBackBtn =()=>{
-	// 	// коли прийшли з HomePage i нажали на cast чи reviews і нажимаєм "назад" повернутися HomePage
-	// 	if (location.pathname === `/movies/${movieId}/cast`) {
-	// 	return 	history.push('/')
-	//
-	// 	}	if (location.pathname === `/movies/${movieId}/reviews`) {
-	// 	return 	history.push('/')
-	// 	}
-	// 	// щоб повернутися назад пушим  в кінець стеку в історію браузера location з адресою з відки ми прийшли
-	// 	// в state.from  лежить цілий обєкт location тої сторінки звідки ми прийшли
-	// 	// ставим ? для того щоб коли зайшли з нової вкладеи по силці не було помилки. Дод ?? знач по умол
-	// 	history.push(location?.state?.from ?? '/movies')
-	//
-	//
-	// }
-
-	const goBackBtn = ()=>{
-		history.push(`${routeState.current.from}`)
-	}
-
 	return (<div className={s.wrapper}>
 		<div className={s.info}>
 			{error && <h1>{error}</h1>}
-			<button type="button" onClick={goBackBtn}>Go back</button>
+			{/*використовуєм кастомний хук щоб повернутися "назад"*/}
+			<button type="button" onClick={goBack}>Go back</button>
 			{movie && <h2>{movie.title}</h2>}
 			{movie && <p>Vote {movie.vote_average}</p>}
 			{movie && <p>Release {movie.release_date}</p>}
