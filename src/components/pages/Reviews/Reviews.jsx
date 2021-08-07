@@ -24,7 +24,7 @@ export default function Reviews() {
 	return (<>
 		{error && <h1>{error}</h1>}
 		{review && <ul>
-			{review.results.map(({id, author, content}) => {
+			{review.map(({id, author, content}) => {
 				return (
 					<li key={id}>
 						<h4>{author}</h4>

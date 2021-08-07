@@ -34,7 +34,7 @@ export const fetchMovieCast= async (id) => {
 export const fetchMovieReviews= async (id) => {
     try {
         const response = await axios.get(`/movie/${id}/reviews?api_key=${API_KEY}&language=en-US&page=1`)
-        return response.data;
+        return response.data.results;
     } catch (error) {
         return Promise.reject(new Error('Опа-опача  щось пішло не так :('))
     }
