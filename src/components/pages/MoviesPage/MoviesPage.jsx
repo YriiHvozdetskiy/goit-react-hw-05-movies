@@ -2,6 +2,7 @@ import {useEffect, useState} from 'react'
 import * as serverApi from '../../services/movies-api'
 import s from './MoviesPage.module.scss'
 import {Link, useHistory, useLocation, useRouteMatch} from "react-router-dom";
+import defaultImage from "../../../default.jpg";
 
 export default function MoviesPage() {
 	const [searchValue, setSearchValue] = useState(null)
@@ -10,7 +11,6 @@ export default function MoviesPage() {
 	const location = useLocation()
 	const history = useHistory()
 	const {url} = useRouteMatch()
-
 
 	useEffect(() => {
 		const searchParam = new URLSearchParams(location.search).get('query')
@@ -58,8 +58,12 @@ export default function MoviesPage() {
 	return (<>
 		{error && <h1>{error}</h1>}
 		{/*TODO не рендирити форму при error */}
+		<form onSubmit={(e) => handleSubmit(e)}>
+			<input type="text" name='value'/>
+			<button type='submit'>Search</button>
+		</form>
 		{data && <ul className={s.list}>
-			{data.map(({id, overview, budget, release_date, vote_average, title}) => {
+			{data.map(({id, overview, budget, release_date, vote_average, title,poster_path}) => {
 				return (
 					<li key={id} className={s.item}>
 		{/*передаєм обєкт, в to передаєм обєкт цього місця знаходження (location) і pathname - куда перейти */}
@@ -69,6 +73,9 @@ export default function MoviesPage() {
 								state: {from: `${url}`},
 							}}>
 							<h2>{title}</h2>
+							{poster_path && <img src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt={title}/>}
+							{/*підставляєм дифолтну картинку якщо не приходе з бека  і ренд тільки один img де є картинка */}
+							{!poster_path  && <img src={defaultImage} alt={title}/>}
 							<p>{vote_average}</p>
 							<p>{release_date}</p>
 							<p>{budget}</p>
@@ -78,9 +85,5 @@ export default function MoviesPage() {
 				)
 			})}
 		</ul>}
-		<form onSubmit={(e) => handleSubmit(e)}>
-			<input type="text" name='value'/>
-			<button type='submit'>Search</button>
-		</form>
 	</>)
 }
