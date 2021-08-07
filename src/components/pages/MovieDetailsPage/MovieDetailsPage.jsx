@@ -12,7 +12,7 @@ export default function MovieDetailsPage() {
 	const {movieId} = useParams()
 	const {url, path} = useRouteMatch()
 	const {goBack} = CustomHooks.useGoBack()
-
+//TODO нормально стилізувати MovieDetailsPage
 	useEffect(() => {
 		async function fetchData() {
 			try {

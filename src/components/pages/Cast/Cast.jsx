@@ -8,7 +8,7 @@ export default function Cast() {
 	const [cast, setCast] = useState(null)
 	const [error, setError] = useState('')
 	const {movieId} = useParams()
-
+//TODO нормально стилізувати Cast
 	useEffect(() => {
 		async function fetchData() {
 			try {

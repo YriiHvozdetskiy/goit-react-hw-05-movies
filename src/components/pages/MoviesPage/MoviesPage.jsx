@@ -12,6 +12,10 @@ export default function MoviesPage() {
 	const history = useHistory()
 	const {url} = useRouteMatch()
 	//TODO розділити на 2 useEffecta (searchParam i searchData)
+	//TODO додати сповіщення при вдалому запросі
+	//TODO додати сповіщення при не вдалому запросі
+	//TODO додати сповіщення при помилці
+	//TODO додати сповіщення при пустому запросі
 	useEffect(() => {
 		const searchParam = new URLSearchParams(location.search).get('query')
 		if (searchParam !== null) {
