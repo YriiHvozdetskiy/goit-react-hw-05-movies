@@ -27,11 +27,24 @@ export default function MovieDetailsPage() {
 		fetchData()
 	}, [movieId])
 
-	const goBackBtn =()=>{
-		// щоб повернутися назад пушим  в кінець стеку в історію браузера location з адресою з відки ми прийшли
-		// в state.from  лежить цілий обєкт location тої сторінки звідки ми прийшли
-		// ставим ? для того щоб коли зайшли з нової вкладеи по силці не було помилки. Дод ?? знач по умол
-		history.push(location?.state?.from ?? '/movies')
+	// const goBackBtn =()=>{
+	// 	// коли прийшли з HomePage i нажали на cast чи reviews і нажимаєм "назад" повернутися HomePage
+	// 	if (location.pathname === `/movies/${movieId}/cast`) {
+	// 	return 	history.push('/')
+	//
+	// 	}	if (location.pathname === `/movies/${movieId}/reviews`) {
+	// 	return 	history.push('/')
+	// 	}
+	// 	// щоб повернутися назад пушим  в кінець стеку в історію браузера location з адресою з відки ми прийшли
+	// 	// в state.from  лежить цілий обєкт location тої сторінки звідки ми прийшли
+	// 	// ставим ? для того щоб коли зайшли з нової вкладеи по силці не було помилки. Дод ?? знач по умол
+	// 	history.push(location?.state?.from ?? '/movies')
+	//
+	//
+	// }
+
+	const goBackBtn = ()=>{
+
 	}
 
 	return (<div className={s.wrapper}>
