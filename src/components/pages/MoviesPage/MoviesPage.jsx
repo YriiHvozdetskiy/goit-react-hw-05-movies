@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react'
 import * as serverApi from '../../services/movies-api'
 import s from './MoviesPage.module.scss'
-import {Link, useHistory, useLocation} from "react-router-dom";
+import {Link, useHistory, useLocation, useRouteMatch} from "react-router-dom";
 
 export default function MoviesPage() {
 	const [searchValue, setSearchValue] = useState(null)
@@ -9,6 +9,7 @@ export default function MoviesPage() {
 	const [error, setError] = useState('')
 	const location = useLocation()
 	const history = useHistory()
+	const {url} = useRouteMatch()
 
 
 	useEffect(() => {
@@ -61,7 +62,12 @@ export default function MoviesPage() {
 			{data.map(({id, overview, budget, release_date, vote_average, title}) => {
 				return (
 					<li key={id} className={s.item}>
-						<Link to={`movies/${id}`}>
+		{/*передаєм обєкт, в to передаєм обєкт цього місця знаходження (location) і pathname - куда перейти */}
+						<Link to={
+							{
+								pathname: `${url}/${id}`,
+								state: {from: location},
+							}}>
 							<h2>{title}</h2>
 							<p>{vote_average}</p>
 							<p>{release_date}</p>

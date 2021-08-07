@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react';
-import {NavLink, Route, Switch, useParams, useRouteMatch} from "react-router-dom";
+import {NavLink, Route, Switch, useHistory, useLocation, useParams, useRouteMatch} from "react-router-dom";
 import * as serverApi from '../../services/movies-api'
 import Cast from "../Cast/Cast";
 import Reviews from "../Reviews/Reviews";
@@ -8,8 +8,10 @@ import s from './MovieDetailsPage.module.scss'
 export default function MovieDetailsPage() {
 	const [movie, setMovie] = useState(null)
 	const [error, setError] = useState('')
-	const {movieId} = useParams();
+	const {movieId} = useParams()
 	const {url, path} = useRouteMatch()
+	const location = useLocation()
+	const history = useHistory()
 
 	useEffect(() => {
 		async function fetchData() {
@@ -25,9 +27,16 @@ export default function MovieDetailsPage() {
 		fetchData()
 	}, [movieId])
 
+	const goBackBtn =()=>{
+		// щоб повернутися назад пушим  в кінець стеку в історію браузера location з адресою з відки ми прийшли
+		// в state.from  лежить цілий обєкт location тої сторінки звідки ми прийшли
+		history.push(location.state.from)
+	}
+
 	return (<div className={s.wrapper}>
 		<div className={s.info}>
 			{error && <h1>{error}</h1>}
+			<button type="button" onClick={goBackBtn}>Go back</button>
 			{movie && <h2>{movie.title}</h2>}
 			{movie && <p>Vote {movie.vote_average}</p>}
 			{movie && <p>Release {movie.release_date}</p>}

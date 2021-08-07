@@ -23,6 +23,7 @@ export default function Reviews() {
 	//TODO доодати повідомлення коли  нема Reviews
 	return (<>
 		{error && <h1>{error}</h1>}
+		{/*{<h1>Для цього фільма немає review</h1>}*/}
 		{review && <ul>
 			{review.map(({id, author, content}) => {
 				return (
