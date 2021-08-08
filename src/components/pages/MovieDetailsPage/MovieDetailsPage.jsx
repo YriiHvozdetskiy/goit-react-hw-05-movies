@@ -72,14 +72,3 @@ export default function MovieDetailsPage() {
 		</Switch>
 	</div>)
 }
-
-
-// {movie && <h2>{movie.title}</h2>}
-// {movie && <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title}/>}
-// {movie && <p>Vote {movie.vote_average}</p>}
-// {movie && <p>Release {movie.release_date}</p>}
-// {movie && <p>Budget {movie.budget} $</p>}
-// {movie && <p>{movie.overview}</p>}
-// {movie && <p>Genres {movie.genres.map(({name}) => {
-// 	return (<span>{name} </span>)
-// })}</p>}
