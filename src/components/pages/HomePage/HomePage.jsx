@@ -30,16 +30,16 @@ export default function HomePage() {
 		{!error && <h1>Trending today</h1>}
 		{value &&
 		<ul>
-			{value.map(movie => {
+			{value.map(({id,title,poster_path}) => {
 				return (
-					<li key={movie.id}>
+					<li key={id}>
 						<Link to={
 							{
-								pathname: `movies/${movie.id}`,
+								pathname: `movies/${id}`,
 								state: {from: '/'},
 							}}>
-							<h2>{movie.title}</h2>
-							{<img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title}/>}
+							<h2>{title}</h2>
+							{<img src={`https://image.tmdb.org/t/p/w500/${poster_path}`} alt={title}/>}
 						</Link>
 					</li>)
 			})}
