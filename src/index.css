@@ -1,40 +1,40 @@
 @import-normalize;
 
 html {
-  box-sizing: border-box;
-  width: 100vw;
-  overflow-x: hidden;
+    box-sizing: border-box;
+    width: 100vw;
+    overflow-x: hidden;
 }
 
 *,
 *::before,
 *::after {
-  box-sizing: inherit;
+    box-sizing: inherit;
 }
 
 body {
-  margin: 0;
-  font-family: 'Roboto', sans-serif;
-  color: #212121;
-  background-color: #fff;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    color: #212121;
+    background-color: #fff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 img {
-  display: block;
-  max-width: 100%;
-  height: auto;
+    display: block;
+    max-width: 100%;
+    height: auto;
 }
 
 a {
-  text-decoration: none;
-  cursor: pointer;
-  display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
 }
 
-ul,li{
-  padding: 0;
-  margin: 0;
-  list-style: none;
+ul, li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
 }

@@ -13,7 +13,7 @@ export default function Main() {
 	  <section>
 		{/*Suspense повинен обгортати тільки те що загружається при кліку*/}
 		{/* в fallback передаєм JSX який буде показуватися коли загр компонента */}
-		<Suspense  fallback={<h1>Loading...</h1>}>
+		<Suspense fallback={<h1>Loading...</h1>}>
 		  <Switch>
 			<Route exact path='/'>
 			  <HomePage/>

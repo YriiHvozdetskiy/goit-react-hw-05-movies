@@ -4,13 +4,13 @@ import Main from "./components/Main/Main";
 
 
 export default function App() {
-    return (
-        <>
-            <Container>
-                <Header/>
-                <Main/>
-            </Container>
-        </>
-    );
+  return (
+	<>
+	  <Container>
+		<Header/>
+		<Main/>
+	  </Container>
+	</>
+  );
 }
 

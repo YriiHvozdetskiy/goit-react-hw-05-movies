@@ -45,7 +45,7 @@ export default function MovieDetailsPage() {
 		  <p>Release {movie.release_date}</p>
 		  <p>Budget {movie.budget} $</p>
 		  <p>{movie.overview}</p>
-		  <p>Genres: {movie.genres.map(({name},i) => (<span key={i}>{name} </span>))}</p>
+		  <p>Genres: {movie.genres.map(({name}, i) => (<span key={i}>{name} </span>))}</p>
 		</li>
 	  </ul>)}
 	</div>
@@ -63,7 +63,7 @@ export default function MovieDetailsPage() {
 	  </li>
 	</ul>
 	{/*Suspense повинен обгортати тільки те що загружається при кліку -- не все в компоненті */}
-	<Suspense>
+	<Suspense fallback={<h1>Загружаєм...</h1>}>
 	  <Switch>
 		{/*коли шлях в Route path буде співпадати з NavLink to: to={`${url}/cast`}  ===  path={`${path}/cast`}, то буде рендитися компонента між Route під ul  */}
 		<Route path={`${path}/cast`}>

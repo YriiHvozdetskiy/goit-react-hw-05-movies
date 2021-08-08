@@ -1,9 +1,9 @@
-
 import s from './Container.module.scss'
 
-function Container({children}){
-    return(<>
-        <div className={s.container}>{children}</div>
-    </>)
+function Container({children}) {
+  return (<>
+	<div className={s.container}>{children}</div>
+  </>)
 }
-export  default Container;
+
+export default Container;
