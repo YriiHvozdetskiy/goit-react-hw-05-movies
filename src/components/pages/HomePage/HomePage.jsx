@@ -8,6 +8,7 @@ export default function HomePage() {
 //TODO нормально стилізувати HomePage
 //TODO дод loader spiner
 //TODO дод пагінацію
+//TODO прописати propTypes
 
 	useEffect(() => {
 		async function fetchData() {
