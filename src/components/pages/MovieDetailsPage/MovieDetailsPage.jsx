@@ -45,7 +45,7 @@ export default function MovieDetailsPage() {
 		  <p>Release {movie.release_date}</p>
 		  <p>Budget {movie.budget} $</p>
 		  <p>{movie.overview}</p>
-		  <p>Genres {movie.genres.map(({name}) => (<span>{name} </span>))}</p>
+		  <p>Genres: {movie.genres.map(({name},i) => (<span key={i}>{name} </span>))}</p>
 		</li>
 	  </ul>)}
 	</div>
