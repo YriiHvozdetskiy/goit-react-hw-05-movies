@@ -18,7 +18,6 @@ export default function MovieDetailsPage() {
 		async function fetchData() {
 			try {
 				const info = await serverApi.fetchMovieById(movieId)
-				console.log(info)
 				await setMovie(info)
 			} catch (error) {
 				// приходе кастомне повідомлення error і записується в стейт
