@@ -3,7 +3,7 @@ import {NavLink, Route, Switch,  useParams, useRouteMatch} from "react-router-do
 import * as serverApi from '../../services/movies-api'
 import Cast from "../Cast/Cast";
 import Reviews from "../Reviews/Reviews";
-import * as CustomHooks  from '../../hooks/index'
+import {useGoBack} from '../../hooks/index'
 import s from './MovieDetailsPage.module.scss'
 
 export default function MovieDetailsPage() {
@@ -11,7 +11,7 @@ export default function MovieDetailsPage() {
 	const [error, setError] = useState('')
 	const {movieId} = useParams()
 	const {url, path} = useRouteMatch()
-	const {goBack} = CustomHooks.useGoBack()
+	const {goBack} =useGoBack()
 //TODO нормально стилізувати MovieDetailsPage
 	useEffect(() => {
 		async function fetchData() {
