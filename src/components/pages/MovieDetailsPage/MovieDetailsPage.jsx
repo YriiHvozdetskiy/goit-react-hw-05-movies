@@ -63,6 +63,7 @@ export default function MovieDetailsPage() {
 	  </li>
 	</ul>
 	{/*Suspense повинен обгортати тільки те що загружається при кліку -- не все в компоненті */}
+	{/* в fallback передаєм JSX який буде показуватися коли загр компонента */}
 	<Suspense fallback={<h1>Загружаєм...</h1>}>
 	  <Switch>
 		{/*коли шлях в Route path буде співпадати з NavLink to: to={`${url}/cast`}  ===  path={`${path}/cast`}, то буде рендитися компонента між Route під ul  */}
