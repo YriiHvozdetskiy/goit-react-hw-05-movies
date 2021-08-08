@@ -11,7 +11,6 @@ export default function MoviesPage() {
 	const location = useLocation()
 	const history = useHistory()
 	const {url} = useRouteMatch()
-	//TODO зробити щоб був список знайдених фільмів коли повертаємось з MovieDetailsPage назад
 
 	//TODO дод скілетон при загрузці
 	//TODO дод пагінацію
@@ -53,7 +52,7 @@ export default function MoviesPage() {
 			search: `query=${searchValue}`
 		})
 	}, [searchValue])
-
+	//TODO дод в масив завісімостей history i location
 	const handleSubmit = (e) => {
 		e.preventDefault()
 		const {value} = e.target.value

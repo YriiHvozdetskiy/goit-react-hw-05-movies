@@ -11,7 +11,7 @@ export const useGoBack = () => {
 	useEffect(() => {
 		if (routeState.current) return
 		routeState.current = location.state
-	}, [])
+	}, [location.state])
 
 	//визивається при onClick на кнопці "назад"
 	const handleGoBack = () => {
