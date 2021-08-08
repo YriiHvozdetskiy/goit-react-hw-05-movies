@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
-import * as serverApi from '../../services/movies-api'
 import {Link} from "react-router-dom";
+import * as serverApi from '../../services/movies-api'
+import s from './HomePage.module.scss'
 
 export default function HomePage() {
   const [value, setValue] = useState([])
@@ -27,19 +28,23 @@ export default function HomePage() {
   return (<>
 	{error && <h1>{error}</h1>}
 	{/*TODO рендирити тіки коли є список*/}
-	{!error && <h1>Trending today</h1>}
+	{/*{!error && <h1>Trending today</h1>}*/}
 	{value &&
-	<ul>
-	  {value.map(({id, title, poster_path}) => {
+	<ul className={s.list}>
+	  {value.map(({id, title, poster_path,release_date,vote_average,genre}) => {
 		return (
-		  <li key={id}>
+		  <li key={id} className={s.item}>
 			<Link to={
 			  {
 				pathname: `movies/${id}`,
 				state: {from: '/'},
-			  }}>
-			  <h2>{title}</h2>
-			  {<img src={`https://image.tmdb.org/t/p/w500/${poster_path}`} alt={title}/>}
+			  }} className={s.link}>
+			  {<img className={s.poster} src={`https://image.tmdb.org/t/p/w500/${poster_path}`} alt={title}/>}
+			  <div className={s.box}>
+				<h2 className={s.title}>{title}</h2>
+				<span className={s.vote}>{vote_average}</span>
+			  </div>
+				<p className={s.release}>{release_date}</p>
 			</Link>
 		  </li>)
 	  })}

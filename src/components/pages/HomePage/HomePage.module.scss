@@ -1,0 +1,54 @@
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -15px;
+}
+
+.item {
+  width: 350px;
+  margin: 15px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 0px 0px 4px 4px;
+  transition: 250ms  cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover,
+  &:focus {
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+    transform: scale(1.05);
+  }
+}
+
+.box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+}
+
+.poster {
+}
+
+.title {
+  font-size: 22px;
+}
+
+
+.vote {
+  font-size: 18px;
+  font-weight: 500;
+  padding: 4px;
+  border-radius: 4px;
+  background-color: coral;
+  color: white;
+}
+
+.release {
+  font-size: 17px;
+  font-weight: 500;
+  margin: 0;
+  padding: 10px;
+}
+
+.link {
+  color: #212121;
+}
