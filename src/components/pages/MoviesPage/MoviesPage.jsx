@@ -48,7 +48,6 @@ export default function MoviesPage() {
 		}
 
 		fetchData()
-
 		history.push({
 			...location,
 			search: `query=${searchValue}`
@@ -67,7 +66,6 @@ export default function MoviesPage() {
 	return (<>
 		{error && <h1>{error}</h1>}
 		{/*TODO показувати error */}
-
 		<header className={s.Searchbar}>
 			<form className={s.SearchForm} onSubmit={handleSubmit}>
 				<button type="submit" className={s.SearchFormButton}>
@@ -90,7 +88,7 @@ export default function MoviesPage() {
 						<Link to={
 							{
 								pathname: `${url}/${id}`,
-								state: {from: `${url}`},
+								state: {from: `${url}${location.search}`},
 							}}>
 							<h2>{title}</h2>
 							{poster_path && <img src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt={title}/>}

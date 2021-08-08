@@ -15,8 +15,8 @@ export const useGoBack = () => {
 
 	//визивається при onClick на кнопці "назад"
 	const handleGoBack = () => {
-		//якщо зайшли з нової сторінки чи перезагрузили сторінку провіряєм чи є щось в routeState.current в противному випадку переходем на HomePage
-		const url = routeState.current ? routeState.current.from : '/'
+		//якщо зайшли з нової сторінки чи перезагрузили сторінку провіряєм чи є щось в routeState.current в противному випадку переходем на MoviesPage
+		const url = routeState.current ? routeState.current.from : '/movies'
 		// записуєм в історію куда потрібно перейти , а Route рендерить потрібну компоненту
 		history.push(`${url}`)
 	}
