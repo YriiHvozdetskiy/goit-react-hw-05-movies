@@ -66,7 +66,7 @@ export default function MoviesPage() {
 	return (<>
 		{error && <h1>{error}</h1>}
 		{/*TODO показувати error */}
-		<header className={s.Searchbar}>
+		<div className={s.Searchbar}>
 			<form className={s.SearchForm} onSubmit={handleSubmit}>
 				<button type="submit" className={s.SearchFormButton}>
 					<span className={s.SearchFormButtonLabel}>Search</span>
@@ -79,7 +79,7 @@ export default function MoviesPage() {
 					placeholder="Search movies"
 				/>
 			</form>
-		</header>
+		</div>
 		{data && <ul className={s.list}>
 			{data.map(({id, overview, budget, release_date, vote_average, title, poster_path}) => {
 				return (
