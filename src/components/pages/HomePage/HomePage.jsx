@@ -6,7 +6,6 @@ import s from './HomePage.module.scss'
 export default function HomePage() {
   const [value, setValue] = useState([])
   const [error, setError] = useState('')
-//TODO нормально стилізувати HomePage
 //TODO дод loader spiner
 //TODO дод пагінацію
 //TODO прописати propTypes
