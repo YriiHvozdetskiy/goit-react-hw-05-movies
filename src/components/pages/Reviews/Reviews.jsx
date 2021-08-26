@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
-import * as serverApi from '../../services/movies-api'
+import * as serverApi from '../../../services/movies-api'
 
 export default function Reviews() {
   const [review, setReview] = useState(null)

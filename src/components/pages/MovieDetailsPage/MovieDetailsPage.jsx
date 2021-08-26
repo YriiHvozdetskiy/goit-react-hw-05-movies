@@ -1,6 +1,6 @@
 import {useState, useEffect, Suspense, lazy} from 'react';
 import {NavLink, Route, Switch, useParams, useRouteMatch} from "react-router-dom";
-import * as serverApi from '../../services/movies-api'
+import * as serverApi from '../../../services/movies-api'
 import {useGoBack} from '../../hooks/index'
 import s from './MovieDetailsPage.module.scss'
 import defaultImage from "../../../default.jpg";

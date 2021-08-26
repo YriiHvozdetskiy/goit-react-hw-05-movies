@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
-import * as serverApi from '../../services/movies-api'
+import * as serverApi from '../../../services/movies-api'
 import s from './HomePage.module.scss'
 
 export default function HomePage() {

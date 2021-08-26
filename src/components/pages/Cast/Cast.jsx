@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
-import * as serverApi from '../../services/movies-api'
+import * as serverApi from '../../../services/movies-api'
 import s from './Cast.module.scss'
 import defaultImage from '../../../default.jpg'
 

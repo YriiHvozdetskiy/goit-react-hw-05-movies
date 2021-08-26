@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react'
-import * as serverApi from '../../services/movies-api'
+import * as serverApi from '../../../services/movies-api'
 import s from './MoviesPage.module.scss'
 import {Link, useHistory, useLocation, useRouteMatch} from "react-router-dom";
 import defaultImage from "../../../default.jpg";
